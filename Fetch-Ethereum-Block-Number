@@ -1,0 +1,21 @@
+const ethers = require("ethers");  // Alternative import method
+
+console.log("Script started...");
+
+const provider = new ethers.providers.JsonRpcProvider(
+  `YOUR API KEY`
+);
+
+const queryBlockchain = async () => {
+  try {
+    console.log("Fetching block number...");
+    const block = await provider.getBlockNumber();
+    console.log("Current Block Number:", block);
+  } catch (error) {
+    console.error("Error fetching block number:", error.message);
+  }
+};
+
+queryBlockchain();
+
+console.log("Script executed...");
