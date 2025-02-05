@@ -1,0 +1,27 @@
+const ethers = require("ethers");
+
+console.log("Script started...");
+
+const provider = new ethers.providers.JsonRpcProvider(
+  `YOUR API KEY`
+);
+
+const queryBlockchain = async () => {
+  try {
+    console.log("Fetching account balance...");
+    const balance = await provider.getBalance(
+      "0xf8238a3dd9a67b8419412eDE613A06D73Ffc2D93"
+    );
+    console.log("Account Balance In BN:", balance);
+  
+    const balanceEther = ethers.utils.formatEther(balance);
+    console.log("Account Balance In Ether:", balanceEther);
+  
+  } catch (error) {
+    console.error("Error fetching block number:", error.message);
+  }
+};
+
+queryBlockchain();
+
+console.log("Script executed...");
